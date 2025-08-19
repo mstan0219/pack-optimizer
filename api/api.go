@@ -79,7 +79,7 @@ func correct(c *gin.Context) {
 	if x == 0 {
 		return // Early return if validation fails
 	}
-	packs := pack.Correct(x)
+	packs := pack.Correct(x, pack.GetSizes())
 	c.JSON(http.StatusOK, gin.H{
 		"status": true,
 		"data": gin.H{
@@ -101,7 +101,7 @@ func incorrect(c *gin.Context) {
 	if x == 0 {
 		return // Early return if validation fails
 	}
-	packs := pack.InCorrect(x)
+	packs := pack.InCorrect(x, pack.GetSizes())
 	c.JSON(http.StatusOK, gin.H{
 		"status": true,
 		"data": gin.H{

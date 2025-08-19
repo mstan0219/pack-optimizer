@@ -63,5 +63,7 @@ func TestIntegration_InCorrectEndpoint(t *testing.T) {
 
 	require.True(t, resp.Status)
 	require.Equal(t, 251, resp.Data.Ordered)
-	require.Contains(t, resp.Data.Packs, map[int]int{250: 2})
+	require.Contains(t, resp.Data.Packs, map[int]int{1000: 1})
+	require.Contains(t, resp.Data.Packs, map[int]int{2000: 1})
+	require.Contains(t, resp.Data.Packs, map[int]int{5000: 1})
 }
